@@ -4,6 +4,9 @@ const resolvers = {
 		// the homepage grid of our web client
 		tracksForHome: (parent, args, context, info) => {},
 	},
+	Track: {
+		author: (parent, _, { dataSources }) => {},
+	},
 };
 
 module.exports = resolvers;
