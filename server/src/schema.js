@@ -8,7 +8,7 @@ const typeDefs = gql`
 	}
 
 	type Mutation {
-		IncrementTrackView(id: ID!): IncrementTrackViewsResponse!;
+		IncrementTrackView(id: ID!): IncrementTrackViewsResponse!
 	}
 
 	"A track is a group of Modules that teaches about a specific topic"
@@ -38,7 +38,7 @@ const typeDefs = gql`
 		"Indicates whether the mutation was successful"
 		success: Boolean!
 		"Human-readable message for the UI"
-		message: string!
+		message: String!
 		"Newly updated track after a successful mutation"
 		track: Track
 	}
