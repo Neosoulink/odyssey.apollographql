@@ -9,6 +9,28 @@ const resolvers = {
 			return dataSources.trackAPI.getTrack(id);
 		},
 	},
+	Mutation: {
+		// Increment's a track numberOfView property
+		IncrementTrackView: async (_, { id }, { dataSources }) => {
+			try {
+				const track = await dataSources.trackAPI.incrementTrackViews(id);
+
+				return {
+					code: 200,
+					success: true,
+					message: "",
+					track,
+				};
+			} catch (err) {
+				return {
+					status: err.extensions.response.status,
+					success: false,
+					message: err.extensions.response.body,
+					track: null,
+				};
+			}
+		},
+	},
 	Track: {
 		author: ({ authorId }, _, { dataSources }) => {
 			return dataSources.trackAPI.getAuthor(authorId);
